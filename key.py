@@ -6,7 +6,8 @@ br = 38400
 
 try:
     o = Serial("/dev/ttyACM0", br)
-except:
+except Exception as e:
+    print e
     o = Serial("/dev/ttyACM1", br)
 
 from curses import *
@@ -19,6 +20,9 @@ def digitalwrite(p,v):
 
 colemak_ups  ="qwfpgjluy;[]"
 colemak_downs="arstdhneio'\\"
+             
+qwerty_ups  ="qwertyuiop[]"
+qwerty_downs="asdfghjkl;'\\"
 
 ups = colemak_ups
 downs = colemak_downs
